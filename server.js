@@ -12,6 +12,11 @@ app.get('/hey', (req, res) => {
   res.send('Hey, you are cute')
 })
 
+app.get('/jessy', (req, res) => {
+  console.log('visiting /hey')
+  res.send('isnt this neat?')
+})
+
 app.get('/', (req, res) => {
   console.log('request just came in')
   res.sendFile(path.join(__dirname, 'build', 'index.html'))

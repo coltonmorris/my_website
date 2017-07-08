@@ -21,3 +21,8 @@ spec:
         backend:
           serviceName: my-website
           servicePort: 80
+      - path: /jessy
+        backend:
+          serviceName: my-website
+          servicePort: 80
+

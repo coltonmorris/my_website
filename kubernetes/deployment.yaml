@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: my-website
 spec:
-  replicas: 3
   template:
     metadata:
       labels:
@@ -12,7 +11,7 @@ spec:
       containers:
       - name: frontend
         # image: my-website
-        # imagePullPolicy: Never
+        imagePullPolicy: IfNotPresent
         image: gcr.io/my-website-169905/github-coltonmorris-my-website
         ports:
         - containerPort: 8080
