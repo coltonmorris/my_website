@@ -11,8 +11,8 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: my-website
-        #image: gcr.io/my-website?/my-website?
-        imagePullPolicy: Never
+        # image: my-website
+        # imagePullPolicy: Never
+        image: gcr.io/my-website-169905/github-coltonmorris-my-website
         ports:
         - containerPort: 8080

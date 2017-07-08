@@ -8,10 +8,14 @@ WORKDIR /app
 COPY ./package.json /app
 COPY ./server.js /app
 
-COPY ./node_modules /app/node_modules
+RUN npm i
+# COPY ./node_modules /app/node_modules
+
 COPY ./public /app/public
 COPY ./src /app/src
-COPY ./build /app/build
+
+RUN npm run build
+# COPY ./build /app/build
 
 EXPOSE 8080
 
