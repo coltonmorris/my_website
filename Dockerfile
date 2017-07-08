@@ -1,16 +1,18 @@
 From node:boron
 
 #create app directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+RUN mkdir /app
+WORKDIR /app
 
 # Install dependencies
-COPY package.json /usr/src/app
-RUN npm install
+COPY ./package.json /app
+COPY ./server.js /app
 
-# Bundle app source
-COPY . /usr/src/app
+COPY ./node_modules /app/node_modules
+COPY ./public /app/public
+COPY ./src /app/src
+COPY ./build /app/build
 
-EXPOSE 3000
+EXPOSE 8080
 
-CMD [ "npm", "start" ]
+CMD [ "node", "server.js" ]
