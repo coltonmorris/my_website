@@ -1,8 +1,8 @@
 # My Domains:
-[coltons.tech](coltons.tech)   
-[coltons.website](coltons.website)   
-[coltons.site](coltons.site)   
-[coltons.space](coltons.space)   
+[coltons.tech](http://coltons.tech)   
+[coltons.website](http://coltons.website)   
+[coltons.site](http://coltons.site)   
+[coltons.space](http://coltons.space)   
 
 
 ## Notes
