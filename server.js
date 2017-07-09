@@ -1,4 +1,4 @@
-// my summoner id is 38918850
+'use strict'
 
 let express   = require('express')
 let path      = require('path')

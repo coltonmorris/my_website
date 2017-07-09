@@ -3,7 +3,15 @@
 [coltons.website](coltons.website)   
 [coltons.site](coltons.site)   
 [coltons.space](coltons.space)   
-   
+
+
+## Notes
+Uses GCE. uses GCE loadbalancer with a static ip. An ephemeral ip is assigned first, but you can toggle it to static in the console.
+In order to push an image to the gcr, you must have gcloud cli and be authorized. You can either build the image then push it locally, or have a webhook that watches the git repo.
+
+
+
+
 ---
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 

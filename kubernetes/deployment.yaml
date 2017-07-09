@@ -12,6 +12,6 @@ spec:
       - name: frontend
         # image: my-website
         imagePullPolicy: IfNotPresent
-        image: gcr.io/my-website-169905/github-coltonmorris-my-website
+        image: gcr.io/my-website-169905/my-website:latest
         ports:
         - containerPort: 8080
