@@ -11,7 +11,7 @@ spec:
       containers:
       - name: frontend
         # image: my-website
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         image: gcr.io/my-website-169905/my-website:latest
         ports:
         - containerPort: 8080
