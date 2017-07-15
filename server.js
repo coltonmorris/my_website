@@ -3,8 +3,10 @@
 let express   = require('express')
 let path      = require('path')
 let app       = express()
+// let cors      = require('cors')
 
 
+// app.use(cors())
 app.use(express.static(path.join(__dirname, 'build')))
 
 app.get('/hey', (req, res) => {
@@ -23,6 +25,6 @@ app.get('/', (req, res) => {
 })
 
 
-app.listen(8080, () => {
-  console.log('Server is listening on port 8080')
+app.listen(80, () => {
+  console.log('Server is listening on port 80')
 })

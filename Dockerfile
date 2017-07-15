@@ -7,6 +7,7 @@ WORKDIR /app
 # Install dependencies
 COPY ./package.json /app
 COPY ./server.js /app
+COPY ./client.js /app
 
 COPY ./public /app/public
 COPY ./src /app/src
@@ -17,6 +18,5 @@ COPY ./build /app/build
 # RUN npm i
 COPY ./node_modules /app/node_modules
 
-EXPOSE 8080
-
+EXPOSE 80
 CMD [ "node", "server.js" ]

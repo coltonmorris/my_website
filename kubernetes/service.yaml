@@ -6,9 +6,11 @@ spec:
   selector:
     tier: frontend
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 8080
+    - port: 80
+      targetPort: 80
   # gce load balancer
   type: LoadBalancer
-  loadBalancerIP: 35.197.4.146
+  # cluster-1
+  # loadBalancerIP: 35.197.4.146
+  # cluster-2
+  loadBalancerIP: 35.192.0.146
