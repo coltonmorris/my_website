@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.16.2",
+    "body-parser": "^1.17.2",
     "cors": "^2.8.3",
     "express": "^4.15.3",
     "loading-svg": "^1.0.0",
@@ -13,6 +14,8 @@
     "react-dom": "^15.5.4",
     "request": "^2.81.0",
     "request-promise": "^4.2.1",
+    "restify-clients": "^1.5.0",
+    "restify-cors-middleware": "^1.0.0",
     "superagent": "^3.5.2"
   },
   "devDependencies": {

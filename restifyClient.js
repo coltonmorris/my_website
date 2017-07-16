@@ -7,7 +7,6 @@ let axios = require('axios')
 console.log('trying cop-classifier')
 let options = {
   method: 'POST',
-  mode: 'no-cors',
   uri: 'http://cop-classifier/image',
   json: true,
   body: { url: 'http://i.imgur.com/nwertuO.jpg'}
@@ -30,8 +29,9 @@ let c = () => {
 
 let b = () => {
   return superagent
-  .get('http://cop-classifier/image')
-  .send('url=http://i.imgur.com/nwertuO.jpg')
+  .post('http://cop-classifier/image')
+  .set('Content-Type', 'application/json')
+  .send({"url":"http://i.imgur.com/nwertuO.jpg"})
   .then((res) => {
     console.log('response keys: ', Object.keys(res))
     console.log('res body person: ', res.body.person)

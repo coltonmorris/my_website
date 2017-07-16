@@ -8,6 +8,13 @@ import superagent from 'superagent'
 import rp from 'request-promise'
 import axios from 'axios'
 
+let _include_headers = function(body, response, resolveWithFullResponse) {
+  console.log('************************')
+  console.log('FOUND SOME HEADERS MOTHER FUCKER')
+  console.log('************************')
+  return {'headers': response.headers, 'data': body};
+};
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -30,12 +37,13 @@ class App extends Component {
     console.log('trying cop-classifier')
     let options = {
       method: 'POST',
-      headers: {
-        'Content-Type': 'text/plain'
-      },
+      // headers: {
+      //   'Content-Type': 'text/plain'
+      // },
       uri: 'http://cop-classifier/image',
-      json: false,
-      body: JSON.stringify({ url: url })
+      json: true,
+      body: { url: url },
+      transform: _include_headers,
     }
 
     return rp(options)
@@ -56,10 +64,11 @@ class App extends Component {
     })
     .then(() => {
       console.log('trying super agent now')
+      let sendstr = 'url=' + url
+      console.log('sending: ', sendstr)
       return superagent
-      .post('http://cop-classifier/image')
-      .set('Content-Type', 'application/json')
-      .send(JSON.stringify({url:url}))
+      .get('http://cop-classifier/image')
+      .send(sendstr)
       .then((res) => {
         console.log('response keys: ', Object.keys(res))
         console.log('res body person: ', res.body.person)
@@ -68,8 +77,9 @@ class App extends Component {
       .catch((err) => {
         console.log('error getting image info')
         console.log(Object.keys(err))
-        console.log('err.response: ', err.response)
-        console.log('err all: ', err)
+        console.log('err.crossDomain: ', err.crossDomain)
+        console.log('err.method: ', err.method)
+        console.log('err.url: ', err.url)
       })
     })
     .then(() => {
@@ -87,6 +97,24 @@ class App extends Component {
         console.log('err obj: ', err)
       })
     })
+    // .then(() => {
+    //   console.log('trying restify-client now')
+    //   let client = clients.createStringClient({
+    //     url: 'http://cop-classifier'
+    //   })
+    //   return client.pose({method: 'post', path:'http://cop-classifier/image', data: url}, (err, req, res) => {})
+    //   .then((res) => {
+    //     console.log('response keys: ', Object.keys(res))
+    //     console.log('res body person: ', res.body.person)
+    //     console.log('res body result: ', res.body.result)
+    //   })
+    //   .catch((err) => {
+    //     console.log('error getting image info')
+    //     console.log(Object.keys(err))
+    //     console.log('err.response: ', err.response)
+    //     console.log('err obj: ', err)
+    //   })
+    // })
   }
 
   handleRetry(event) {

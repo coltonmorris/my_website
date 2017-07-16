@@ -7,6 +7,7 @@ WORKDIR /app
 # Install dependencies
 COPY ./package.json /app
 COPY ./server.js /app
+COPY ./restifyClient.js /app
 COPY ./client.js /app
 
 COPY ./public /app/public
